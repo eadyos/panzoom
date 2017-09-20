@@ -1,10 +1,9 @@
 var hasEventHandler = function(obj, eventHandler){
 	var result = false;
-	//console.log($(obj).data('events')); //old jquery
-	//console.log(jQuery._data( obj, "events" ));	
+  	//console.log($(obj).data('events')); //old jquery
+     //console.log(jQuery._data( obj, "events" ));
 
-	jQuery.each(jQuery._data( obj, "events" ), function(i, event){
-		if(event[0].type == eventHandler){
+    jQuery.each(jQuery._data( obj, "events" ), function(i, event){		if(event[0].type == eventHandler){
 			result = true;
 		}
 	});
@@ -214,6 +213,10 @@ var panZoom = function(fullImg, viewerDivSelector, angle){
 
 		}
 
+		console.log("Image: " + fullImg)
+		console.log("viewerWidth: " + viewerWidth);
+		console.log("viewerHeight: " + viewerHeight);
+
 		viewDivWrapper
 			.width(viewerWidth)
 			.height(viewerHeight)
@@ -243,7 +246,6 @@ var panZoom = function(fullImg, viewerDivSelector, angle){
 			.mouseenter(function(e){
 				$(this).css('background-size', fullWidth + "px " + fullHeight + "px");
 				if(!hasEventHandler(this, 'mousemove')){ //enable scrolly action if disabled
-					console.log("adding mousemove handler");
 					$(this).mousemove(viewMouseMove);
 				}
 			})
@@ -255,28 +257,34 @@ var panZoom = function(fullImg, viewerDivSelector, angle){
 				}
 			});
 
-		viewDiv.append(viewDivWrapper);
+		if(!viewDiv.find('.wrapper').length){
+			viewDiv.append(viewDivWrapper);
+		}
 	}
 
 	img.onload = execute;
 	img.src = fullImg;
-	if (navigator.userAgent.indexOf("Firefox")!=-1){
-		var found = false;
-		var width;
-		var height;
-		console.log(loadedImages);
-		for(var i = 0;i<loadedImages.length;i++){
-			if(fullImg.indexOf(loadedImages[i].name) >= 0){
-				found = true;
-				loadThis = false;
-				width = loadedImages[i].width;
-				height = loadedImages[i].height;
-			}
-		}
-		if(found){
-			execute(img, width, height);
-		}else{
-			loadedImages.push({name:fullImg, width:img.width, height:img.height});
-		}
-	}
+
+//For some reason this functionality is now working in Firefox.
+//The code below may no longer be needed.
+//	if (navigator.userAgent.indexOf("Firefox")!=-1){
+//		var found = false;
+//		var width;
+//		var height;
+//		console.log(loadedImages);
+//		for(var i = 0;i<loadedImages.length;i++){
+//			if(fullImg.indexOf(loadedImages[i].name) >= 0){
+//				found = true;
+//				loadThis = false;
+//				width = loadedImages[i].width;
+//				height = loadedImages[i].height;
+//			}
+//		}
+//		if(found){
+//			execute(img, width, height);
+//		}else{
+//			loadedImages.push({name:fullImg, width:img.width, height:img.height});
+//		}
+//	}
+
 }

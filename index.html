@@ -14,6 +14,30 @@
 <body>
 
 <H1>Pan Zoom Test</H1>
+
+<p><a href="https://github.com/eadyos/panzoom">PanZoom on Github</a></p>
+
+<h3>About</h3>
+<p>
+	Panzoom was created so that images can be zoomed and the zoom location could be paused.  This was needed for image transcribing purposes.  It was also intended to be simple.  All you need is a container div and panzoom does the rest.  Only 1 image size is needed.  It also has built-in, client-side rotation support.  This was useful for scanned documents that weren't always the correct perspective.
+</p>
+
+<p><pre><strong>panZoom(imageFile, container, rotationAngle); </strong></pre></p>
+
+<p>
+	Usage Example:
+</p>
+
+<pre>
+	&lt;div id="myViewerDiv"&gt;&lt;/div&gt;
+
+	&lt;script type="text/javascript"&gt;
+	  panZoom("cat.jpg", '#viewerDiv', 0);
+	&lt;/script&gt;	
+
+</pre>
+
+
 <p>
 	<ul>
 		<li>Pan with the mouse pointer</li>
@@ -36,6 +60,12 @@
   panZoom("cat.jpg", '#viewerDiv', 0);
   panZoom("cat.jpg", '#viewerDiv2', 90);
 </script>
+
+</hr>
+
+<p>
+Tested in Chrome, Firefox, Safari, Edge
+</p>
 
 </body>
 </html>
