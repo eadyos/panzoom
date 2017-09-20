@@ -1,0 +1,41 @@
+<html>
+<head>
+	<TITLE>Image Viewer Test</TITLE>
+
+<meta http-equiv="no-cache">
+<meta http-equiv="Expires" content="-1">
+<meta http-equiv="Cache-Control" content="no-cache">
+
+<script src="jquery-3.2.1.min.js"></script>
+<script src="jquery.mousewheel.min.js"></script>
+<script src="panZoom.js"></script>
+
+</head>
+<body>
+
+<H1>Pan Zoom Test</H1>
+<p>
+	<ul>
+		<li>Pan with the mouse pointer</li>
+		<li>Use the mousewheel to zoom</li>
+		<li>Click the image to freeze it in place.  Useful for keeping the image in a position while you focus on another screen element, input field, etc.</li>
+		<li>Viewer supports client-side image rotation at 0, 90, 180, 270 degrees</li>
+	</ul>
+</p>
+
+
+<div id="viewerDiv" style="position:relative; height: 400px; width: 400px;border: 1px solid #000"></div>
+
+<br/>
+<hr/>
+<br/>
+
+<div id="viewerDiv2" style="position:relative; height: 400px; width: 400px;border: 1px solid #000"></div>
+
+<script type="text/javascript">
+  panZoom("cat.jpg", '#viewerDiv', 0);
+  panZoom("cat.jpg", '#viewerDiv2', 90);
+</script>
+
+</body>
+</html>
