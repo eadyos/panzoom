@@ -29,3 +29,7 @@ Usage Example:
 Tested in Chrome, Firefox, Safari, Edge
 
 
+### Requirements
+
+PanZoom requires JQuery and JQuery mousewheel plugin.
+
