@@ -1,7 +1,8 @@
 var hasEventHandler = function(obj, eventHandler){
 	var result = false;
 
-    jQuery.each(jQuery._data( obj, "events" ), function(i, event){		if(event[0].type == eventHandler){
+    	jQuery.each(jQuery._data( obj, "events" ), function(i, event){		
+		if(event[0].type == eventHandler){
 			result = true;
 		}
 	});
