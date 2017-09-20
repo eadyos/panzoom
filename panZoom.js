@@ -1,7 +1,5 @@
 var hasEventHandler = function(obj, eventHandler){
 	var result = false;
-  	//console.log($(obj).data('events')); //old jquery
-     //console.log(jQuery._data( obj, "events" ));
 
     jQuery.each(jQuery._data( obj, "events" ), function(i, event){		if(event[0].type == eventHandler){
 			result = true;
@@ -264,27 +262,4 @@ var panZoom = function(fullImg, viewerDivSelector, angle){
 
 	img.onload = execute;
 	img.src = fullImg;
-
-//For some reason this functionality is now working in Firefox.
-//The code below may no longer be needed.
-//	if (navigator.userAgent.indexOf("Firefox")!=-1){
-//		var found = false;
-//		var width;
-//		var height;
-//		console.log(loadedImages);
-//		for(var i = 0;i<loadedImages.length;i++){
-//			if(fullImg.indexOf(loadedImages[i].name) >= 0){
-//				found = true;
-//				loadThis = false;
-//				width = loadedImages[i].width;
-//				height = loadedImages[i].height;
-//			}
-//		}
-//		if(found){
-//			execute(img, width, height);
-//		}else{
-//			loadedImages.push({name:fullImg, width:img.width, height:img.height});
-//		}
-//	}
-
 }
